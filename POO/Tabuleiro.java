@@ -12,21 +12,23 @@ public class Tabuleiro {
         return newArrchar;
     }
 
-    public void exibirTabuleiro(char[][] tabuleiro) {
+    public void apresentarPecas(char[][] tabuleiro) {
         System.out.println();
-        for (int linha = 0; linha < 2; linha++) {
-            System.out.println(tabuleiro[linha][linha]);
-            System.out.println();
+        for (int row = 0; row < tabuleiro.length; row++)// Cycles through rows
+        {
+            for (int col = 0; col < tabuleiro[row].length; col++)// Cycles through columns
+            {
+                System.out.println(tabuleiro[row][col]); // change the %5d to however much space you want
+            }
+            System.out.println(); // Makes a new row
         }
     }
 
-
-    public void setJogada(char[][] arrchar, char simbolo, int linha, int coluna) {
+    public void inserirPeca(char[][] arrchar, char simbolo, int linha, int coluna) {
         arrchar[linha][coluna] = simbolo;
     }
 
-
-    public boolean verificarVencedor(char[][] arrchar) {
+    public boolean existeVencedor(char[][] arrchar) {
         if (arrchar[0][0] == 'X' && arrchar[0][1] == 'X' && arrchar[0][2] == 'X') {
             return true;
         } else if (arrchar[1][0] == 'X' && arrchar[1][1] == 'X' && arrchar[1][2] == 'X') {
@@ -64,6 +66,3 @@ public class Tabuleiro {
         }
     }
 }
-
-
-
